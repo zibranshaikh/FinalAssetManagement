@@ -1087,6 +1087,67 @@ public ArrayList<UserAssetRequest> viewTransferRequest() {
 
 
 
+
+public int approveEmpTransferReq(Request r) {
+	
+
+int x=0;
+int status=1;
+AssetController ac=new AssetController();
+Session ss= ac.session();
+if(r.getEid1()!=null)
+{
+System.out.println("Approve req "+status+" "+r.getEid1()+" "+r.getRequestid());
+String hql="update Request set status=:a where eid1=:b and requestid=:c ";
+Query q=ss.createQuery(hql);
+q.setInteger("a",status);
+q.setString("b",r.getEid1());
+q.setString("c",r.getRequestid());
+
+Transaction tt=ss.beginTransaction();
+ x=q.executeUpdate();
+		     	tt.commit();
+				ss.close();
+
+		
+}
+
+	return x;
+}
+
+public int rejectEmpTransferReq(Request r) {
+
+
+int x=0;
+int status=2;
+AssetController ac=new AssetController();
+Session ss= ac.session();
+if(r.getEid1()!=null)
+{
+System.out.println("Approve req "+status+" "+r.getEid1()+" "+r.getRequestid());
+String hql="update Request set status=:a where eid1=:b and requestid=:c ";
+Query q=ss.createQuery(hql);
+q.setInteger("a",status);
+q.setString("b",r.getEid1());
+q.setString("c",r.getRequestid());
+
+Transaction tt=ss.beginTransaction();
+x=q.executeUpdate();
+	     	tt.commit();
+			ss.close();
+
+	
+}
+
+return x;
+}
+
+
+
+
+
+
+
 }
 
 	

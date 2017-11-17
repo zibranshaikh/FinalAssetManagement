@@ -22,9 +22,9 @@ for(UserAssetRequest cc:ar)
 <td><%=(cc.getFromemp())%></td>
 <td><%=(cc.getToemp())%></td>
 <td><input type="text" value="<%=(cc.getAssetid())%>" name="assetid" readonly /></td>
-<td><input type="hidden" value="<%=(cc.getRequestid())%>" name="requestid" readonly /></td>
-<td><input type="hidden" value="<%=(cc.getFromemp())%>" name="fromemp" readonly /></td>
-<td><input type="hidden" value="<%=(cc.getToemp())%>" name="toemp" readonly /></td>
+<input type="hidden" value="<%=(cc.getRequestid())%>" name="requestid" readonly />
+<input type="hidden" value="<%=(cc.getFromemp())%>" name="fromemp" readonly />
+<input type="hidden" value="<%=(cc.getToemp())%>" name="toemp" readonly />
 
 <td><%=(cc.getAssetname())%></td>
 <td><%=(cc.getRequestdate())%></td>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -95,6 +96,44 @@ public class RequestDao {
 			return list;
 		
 	}
+	
+	
+	
+	public List<UserAssetRequest> viewAssetTransfer(String fromemp)
+	{     
+		UserAssetRequest u=null;
+	    //int status=1,x=0;
+			AssetController ac=new AssetController();
+			Session ss= ac.session();
+			String hql="from UserAssetRequest where fromemp=:a";
+			Query q=ss.createQuery(hql);
+			q.setString("a", fromemp);
+			List<UserAssetRequest> list=(List<UserAssetRequest>)q.list();
+						ss.close();
+			
+			return list;
+		
+	}
+
+	
+	
+	
+	public List<UserAssetRequest> viewRequestFromOther(String toemp)
+	{     
+		UserAssetRequest u=null;
+	    //int status=1,x=0;
+			AssetController ac=new AssetController();
+			Session ss= ac.session();
+			String hql="from UserAssetRequest where toemp=:a";
+			Query q=ss.createQuery(hql);
+			q.setString("a",toemp);
+			List<UserAssetRequest> list=(List<UserAssetRequest>)q.list();
+			ss.close();
+			return list;
+		
+	}
+
+
 
 	
 	

@@ -1355,4 +1355,76 @@ protected ModelAndView cancelRequest(@ModelAttribute("Request") Request r,HttpSe
 	  
 	  
 	  }	  
+	  
+	  
+	  
+	  @RequestMapping("/ViewEAssetTransferRequest")//employee can view his asset that his allocated 
+	 	protected ModelAndView viewAssetTransfer(HttpServletRequest request) {
+	 	  ModelAndView mv=null;
+	 	System.out.println("View Asset Request ");
+	 	  HttpSession ss=request.getSession();
+	 	  String y=(String)ss.getAttribute("user");
+	      RequestDao ld=new RequestDao();
+	      List<UserAssetRequest> list=ld.viewAssetTransfer(y);
+	      mv=new ModelAndView("ViewAssetTransferRequest");
+	      mv.addObject("User", list);
+	 	  return mv;
+
+	
+
+	  
+	  
+	  
+	  
+}
+	  @RequestMapping("/ViewRequestFromOther")//employee can view his asset that his allocated 
+	 	protected ModelAndView viewAssetRequestFromOther(HttpServletRequest request) {
+	 	  ModelAndView mv=null;
+	 	  //System.out.println("View Asset Request ");
+	 	  HttpSession ss=request.getSession();
+	 	  String y=(String)ss.getAttribute("user");
+	      RequestDao ld=new RequestDao();
+	      List<UserAssetRequest> list=ld.viewRequestFromOther(y);
+	      mv=new ModelAndView("ViewAssetRequestFromOther");
+	      mv.addObject("User", list);
+	 	  return mv;
+
+	
+
+}
+	  
+	  
+	  
+	  @RequestMapping("/ETransferAssetFromOther")//employee can view his asset that his allocated 
+	 	protected ModelAndView viewETransferRequestFromOther(HttpServletRequest request,@RequestParam String op) {  
+		  ModelAndView mv=null;
+		  if(op.equals("Approve"))
+	 	  {
+		 
+	 	  //System.out.println("View Asset Request ");
+	 	  HttpSession ss=request.getSession();
+	 	  String y=(String)ss.getAttribute("user");
+	      RequestDao ld=new RequestDao();
+	      List<UserAssetRequest> list=ld.viewRequestFromOther(y);
+	      mv=new ModelAndView("ViewAssetRequestFromOther");
+	      mv.addObject("User", list);
+
+	 	  }
+	 	  if(op.equals("Reject"))
+	 	  {
+	 		  
+	 		  
+	 		  
+	 	  }
+		return mv;
+
+}
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 }

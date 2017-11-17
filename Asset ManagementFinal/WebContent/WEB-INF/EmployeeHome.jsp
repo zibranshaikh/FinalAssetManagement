@@ -96,6 +96,7 @@ border: none;
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    
                     <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Asset Management System</a>
@@ -126,7 +127,8 @@ border: none;
 <h3><a href="AssetETransfer">Transfer Asset</a></h3>
 <h3><a href="ViewProfile">Profile</a></h3>
 <h3><a href="changeEPass">Change Password</a></h3>
-<h3><a href="TransferRequest">View Asset Transfer request</a></h3>
+<h3><a href="ViewEAssetTransferRequest">View Asset Transfer request</a></h3>
+<h3><a href="ViewRequestFromOther">View Request From Colleague's</a></h3>
 
 </div>
 </center>
